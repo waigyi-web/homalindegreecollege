@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ကျောင်းဝင်ခွင့်လျှောက်လွှာ</title>
+    <style>
+        * { box-sizing: border-box; font-family: 'Pyidaungsu', sans-serif; }
+        body { background-color: #f4f7f6; padding: 15px; margin: 0; }
+        .container { max-width: 500px; margin: 0 auto; background: white; padding: 25px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .header { text-align: center; margin-bottom: 25px; }
+        .logo { width: 75px; height: 75px; border-radius: 50%; margin-bottom: 10px; border: 2px solid #5d78ff; }
+        .college-name { font-size: 1.2rem; font-weight: bold; color: #2c3e50; }
+        
+        .form-section { border: 1px solid #e0e0e0; padding: 15px; border-radius: 12px; margin-bottom: 20px; }
+        .section-title { font-weight: bold; color: #5d78ff; border-bottom: 2px solid #5d78ff; padding-bottom: 5px; margin-bottom: 15px; display: block; }
+        
+        label { display: block; font-size: 0.85rem; font-weight: bold; margin-top: 15px; color: #444; }
+        label span { color: red; }
+        input, select, textarea { width: 100%; padding: 12px; margin-top: 6px; border: 1px solid #ccc; border-radius: 8px; font-size: 0.95rem; outline: none; }
+        input:focus { border-color: #5d78ff; }
+
+        .photo-row { display: flex; gap: 10px; margin-top: 8px; }
+        .photo-box { flex: 1; border: 2px dashed #bbb; padding: 15px; text-align: center; border-radius: 10px; cursor: pointer; background: #fafafa; font-size: 0.75rem; color: #666; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        .photo-box:hover { border-color: #5d78ff; background: #f0f3ff; }
+
+        .btn-submit { background: #28a745; color: white; border: none; width: 100%; padding: 16px; border-radius: 10px; margin-top: 20px; font-weight: bold; font-size: 1.1rem; cursor: pointer; }
+        
+        .year-tab { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; justify-content: center; }
+        .tab-btn { padding: 10px 15px; border: 1px solid #5d78ff; border-radius: 20px; background: white; color: #5d78ff; font-weight: bold; cursor: pointer; font-size: 0.85rem; }
+        .tab-btn.active { background: #5d78ff; color: white; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <img src="https://i.ibb.co/XfXvXz0/logo.jpg" class="logo">
+        <div class="college-name">ဟုမ္မလင်းဒီဂရီကောလိပ်</div>
+        <p style="font-size: 0.9rem; color: #666;">ကျောင်းဝင်ခွင့်လျှောက်လွှာဖောင်</p>
+    </div>
+
+    <div class="year-tab">
+        <button class="tab-btn active" onclick="switchYear('First Year', this)">First Year</button>
+        <button class="tab-btn" onclick="switchYear('Second Year', this)">Second Year</button>
+        <button class="tab-btn" onclick="switchYear('Third Year', this)">Third Year</button>
+        <button class="tab-btn" onclick="switchYear('Fourth Year', this)">Fourth Year</button>
+    </div>
+
+    <form id="enrollmentForm">
+        <div class="form-section">
+            <span class="section-title">လိုအပ်သော ဓာတ်ပုံများ</span>
+            
+            <label>ကျောင်းသား/သူ ဓာတ်ပုံ <span>*</span></label>
+            <div class="photo-box" onclick="alert('ဓာတ်ပုံရွေးပါ')">📷 ဓာတ်ပုံတင်မည်</div>
+
+            <label>အောင်လက်မှတ် <span>*</span></label>
+            <div class="photo-row">
+                <div class="photo-box">📄 အရှေ့</div>
+                <div class="photo-box">📄 အနောက်</div>
+            </div>
+
+            <label>(၉) တန်း အမှတ်စာရင်း <span>*</span></label>
+            <div class="photo-row">
+                <div class="photo-box">📊 အရှေ့</div>
+                <div class="photo-box">📊 အနောက်</div>
+            </div>
+
+            <label>(၁၀) တန်း အမှတ်စာရင်း <span>*</span></label>
+            <div class="photo-row">
+                <div class="photo-box">📊 အရှေ့</div>
+                <div class="photo-box">📊 အနောက်</div>
+            </div>
+
+            <label>မိမိမှတ်ပုံတင် <span>*</span></label>
+            <div class="photo-row">
+                <div class="photo-box">🪪 အရှေ့</div>
+                <div class="photo-box">🪪 အနောက်</div>
+            </div>
+
+            <label>ဖခင်မှတ်ပုံတင် <span>*</span></label>
+            <div class="photo-row">
+                <div class="photo-box">👨 အရှေ့</div>
+                <div class="photo-box">👨 အနောက်</div>
+            </div>
+
+            <label>မိခင်မှတ်ပုံတင် <span>*</span></label>
+            <div class="photo-row">
+                <div class="photo-box">👩 အရှေ့</div>
+                <div class="photo-box">👩 အနောက်</div>
+            </div>
+
+            <label>အိမ်ထောင်စုဇယား <span>*</span></label>
+            <div class="photo-row">
+                <div class="photo-box">🏠 အရှေ့</div>
+                <div class="photo-box">🏠 အနောက်</div>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <span class="section-title">ကိုယ်ရေးအချက်အလက်များ</span>
+
+            <label>အမည် (မြန်မာစာဖြင့်) <span>*</span></label>
+            <input type="text" id="nameMya" placeholder="မောင်အောင်ကျော်" required>
+
+            <label>အမည် (အင်္ဂလိပ်စာဖြင့်) <span>*</span></label>
+            <input type="text" id="nameEng" placeholder="AUNG KYAW" required>
+
+            <label>ဖခင်အမည် (မြန်မာစာဖြင့်) <span>*</span></label>
+            <input type="text" id="fatherMya" placeholder="ဦးလှ" required>
+
+            <label>ဖခင်အမည် (အင်္ဂလိပ်စာဖြင့်) <span>*</span></label>
+            <input type="text" id="fatherEng" placeholder="U HLA" required>
+
+            <label>နိုင်ငံသားစိစစ်ရေးကတ်ပြားအမှတ် <span>*</span></label>
+            <input type="text" id="nrc" placeholder="၅/ဟမလ(နိုင်)၁၂၃၄၅၆" required>
+
+            <label>မွေးသက္ကရာဇ် <span>*</span></label>
+            <input type="date" id="dob" required>
+
+            <label>ဖုန်းနံပါတ် <span>*</span></label>
+            <input type="tel" id="phone" placeholder="09xxxxxxxxx" required>
+
+            <label>တက္ကသိုလ်ဝင်ခွင့် ခုံနံပါတ် <span>*</span></label>
+            <input type="text" id="rollNo" placeholder="မ-၁၂၃" required>
+
+            <label>ကျောင်းသားအမျိုးအစား <span>*</span></label>
+            <select id="studentType">
+                <option>Fresher (ကျောင်းသားသစ်)</option>
+                <option>Repeater (ကျောင်းသားဟောင်း)</option>
+                <option>External (ပြင်ပဖြေ)</option>
+            </select>
+
+            <label>တက်ရောက်မည့်နှစ် <span>*</span></label>
+            <select id="stuYear">
+                <option value="First Year">First Year (ပထမနှစ်)</option>
+                <option value="Second Year">Second Year (ဒုတိယနှစ်)</option>
+                <option value="Third Year">Third Year (တတိယနှစ်)</option>
+                <option value="Fourth Year">Fourth Year (စတုတ္ထနှစ်)</option>
+            </select>
+
+            <label>အထူးပြုဘာသာရပ် (Major) <span>*</span></label>
+            <select id="major">
+                <option>မြန်မာစာ</option><option>အင်္ဂလိပ်စာ</option><option>သင်္ချာ</option>
+                <option>ဓာတုဗေဒ</option><option>ရူပဗေဒ</option><option>သမိုင်း</option>
+                <option>ပထဝီဝင်</option><option>သတ္တဗေဒ</option><option>ရုက္ခဗေဒ</option>
+            </select>
+
+            <label>သင်တန်းအမျိုးအစား <span>*</span></label>
+            <select id="courseType">
+                <option>DISTANCE (အဝေးသင်)</option>
+                <option>DAY (နေ့သင်တန်း)</option>
+            </select>
+
+            <label>ဘွဲ့အမျိုးအစား <span>*</span></label>
+            <select id="degreeType">
+                <option>ဝိဇ္ဇာဘွဲ့ (B.A)</option>
+                <option>သိပ္ပံဘွဲ့ (B.Sc)</option>
+            </select>
+
+            <label>နေရပ်လိပ်စာ အပြည့်အစုံ <span>*</span></label>
+            <textarea id="address" rows="3" placeholder="အိမ်အမှတ်၊ လမ်း၊ ရပ်ကွက်၊ မြို့နယ်"></textarea>
+        </div>
+
+        <div class="form-section">
+            <span class="section-title">ကျောင်းသားကတိဝန်ခံချက်</span>
+            <div style="font-size: 0.8rem; color: #555; line-height: 1.6;">
+                <input type="checkbox" id="agree" style="width: auto; margin-top: 0;"> မိမိပေးပို့သော အချက်အလက်များအားလုံး မှန်ကန်ကြောင်း ဝန်ခံကတိပြုပါသည်။
+            </div>
+        </div>
+
+        <button type="button" class="btn-submit" onclick="submitApp()">လျှောက်လွှာတင်မည်</button>
+    </form>
+</div>
+
+<script>
+    function switchYear(year, btn) {
+        const tabs = document.querySelectorAll('.tab-btn');
+        tabs.forEach(tab => tab.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById('stuYear').value = year;
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function submitApp() {
+        const name = document.getElementById('nameMya').value;
+        const year = document.getElementById('stuYear').value;
+        const agree = document.getElementById('agree').checked;
+
+        if(!name || !agree) { 
+            alert("အချက်အလက်များ ပြည့်စုံစွာဖြည့်ပြီး ကတိဝန်ခံချက်ကို အမှန်ခြစ်ပေးပါ။"); 
+            return; 
+        }
+        localStorage.setItem('stuName', name);
+        localStorage.setItem('stuYear', year);
+        alert(year + " အတွက် လျှောက်လွှာတင်ခြင်း အောင်မြင်ပါသည်။");
+        window.location.href = "pay.html";
+    }
+</script>
+
+</body>
+</html>
